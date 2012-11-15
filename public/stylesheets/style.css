@@ -22,3 +22,8 @@ textarea{
 #rightSection{
 	float: left;
 }
+
+
+#listOfRegistrations li{
+	word-wrap: break-word;
+}
