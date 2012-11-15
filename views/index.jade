@@ -1,0 +1,77 @@
+extends layout
+
+block content
+  #leftSection
+    h1 #{title}
+    p Welcome to #{title}
+    h4 
+      a(href='download/frbn.apk') Download the app    
+    h4 Broadcast message  
+    form(action='broadcast', method='post')
+      label Message: 
+      br  
+      textarea(name='message')
+      br
+      label
+        | Title: 
+        input(name='title')
+      label
+        | Category: 
+        select(name='category')
+          option() Public
+          option() Office 
+          option() Nature
+      label
+        | District: 
+        select(name='district')
+          option() San Francisco
+      br  
+      input(type='submit', value='Send')
+    hr    
+    h4 List of activations
+    #listOfActivations
+    hr    
+    h4 List of registrations
+    #listOfRegistrations
+    hr    
+    h4 Notifications sent
+    #listOfNotifications
+    hr    
+    h4 Upload client application APK file  
+    form(action="uploadFile", method="POST", enctype="multipart/form-data")
+      input(type='file', name='apkFile', id='apkFile')
+      button(type='submit') Upload
+    h4 Send activation  
+    form(action='activation', method='post')
+      label
+        | Email: 
+        input(name='email')
+    hr    
+    h4 Verify activation  
+    form(action='/activation/verify', method='post')
+      label
+        | Email: 
+        input(name='email')
+      label
+        | Token: 
+        input(name='token')
+      input(type='submit', value='Verify')
+    hr    
+    h4 Register  
+    form(action='register', method='post')
+      label
+        | Registration Id: 
+        input(name='regId')
+      label
+        | Email: 
+        input(name='email')
+      button(type='submit') Register
+    h4 Un-Register  
+    form(action='unregister', method='post')
+      label
+        | Registration Id: 
+        input(name='regId')
+    hr    
+  #rightSection
+    ul(id='logList')
+      li Logs will appear hear

@@ -1,0 +1,5 @@
+ul
+	for notification in notifications
+		li #{notification.title}, #{notification.messageBody}, #{notification.category}, #{notification.district}, #{notification.timestamp} 
+			a(href='data/removeNotification?ObjectId=#{notification._id}') Remove    
+			a(href='data/removeNotification?ObjectId=#{notification._id}') Load    

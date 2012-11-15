@@ -1,0 +1,4 @@
+ul
+	for registration in registrations
+		li #{registration.email}, #{registration.regId} 
+			a(href='data/removeRegistration?ObjectId=#{registration._id}') Remove    
