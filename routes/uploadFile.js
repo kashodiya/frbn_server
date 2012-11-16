@@ -11,7 +11,15 @@ exports.index = function(req, res, next){
 			, function(err) {
 				console.log(err);
 		});
+		res.json({
+			status: 'OK'
+		});
+	}else{
+		console.log('No files!');
+		res.json({
+			status: 'FAILED'
+			, error: 'File not received by the server.'
+		});
 	}
-
-	res.redirect("/");
+	//res.redirect("/");
 };

@@ -75,8 +75,7 @@ $(function(){
 		});
 	}
 
-	/*
-	$("form[action='uploadFile']").click(function () {
+	$("form[action='uploadFile']").submit(function () {
 		var filename = $("#apkFile").val();
 		$.ajax({
 			type: "POST"
@@ -86,11 +85,15 @@ $(function(){
 				file: filename
 			}
 			, success: function () {
-				alert("Data Uploaded: ");
+				appendLog('File: ' + filename + ' - uploaded successfully.');
+			}
+			, error: function () {
+				appendLog('File: ' + filename + ' - failed to upload.');
 			}
 		});
 		return false;
 	});
+	/*
 	*/
 
 	function appendLog(message){
