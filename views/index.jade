@@ -12,15 +12,17 @@ block content
       br  
       textarea(name='message')
       br
-      label
-        | Title: 
-        input(name='title')
+      label Title: 
+      br
+      input(name='title')
+      br
       label
         | Category: 
         select(name='category')
           option() Public
           option() Office 
           option() Nature
+      br
       label
         | District: 
         select(name='district')
@@ -28,14 +30,14 @@ block content
       br  
       input(type='submit', value='Send')
     hr    
+    h4 Notifications sent
+    #listOfNotifications
+    hr    
     h4 List of activations
     #listOfActivations
     hr    
     h4 List of registrations
     #listOfRegistrations
-    hr    
-    h4 Notifications sent
-    #listOfNotifications
     hr    
     h4 Upload client application APK file  
     form(action="uploadFile", method="POST", enctype="multipart/form-data")
@@ -72,6 +74,6 @@ block content
         | Registration Id: 
         input(name='regId')
     hr    
-  #rightSection
+  #rightSection Logs
     ul(id='logList')
       li Logs will appear hear

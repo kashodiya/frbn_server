@@ -21,9 +21,20 @@ textarea{
 
 #rightSection{
 	float: left;
+    float: left;
+    left: 700px;
+    position: fixed;
+    top: 30px;
 }
 
 
 #listOfRegistrations li{
 	word-wrap: break-word;
 }
+
+
+form[action='broadcast'] input[name='title'], 
+form[action='broadcast'] textarea[name='message']{
+	width: 500px;
+}
+

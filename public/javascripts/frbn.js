@@ -1,6 +1,11 @@
 $(function(){
 
 	var logList = $('#logList');
+	var broadcastFormTitle = $("form[action='broadcast'] input[name='title']");
+	var broadcastFormMessage = $("form[action='broadcast'] textarea[name='message']");
+	var broadcastFormCategory = $("form[action='broadcast'] select[name='category']");
+	var broadcastFormDistrict = $("form[action='broadcast'] select[name='district']");
+	
 	loadListOfActivations();
 	loadListOfRegistrations();
 	loadListOfNotifications();
@@ -17,6 +22,7 @@ $(function(){
 				console.log(data);
 				if(data.status == 'OK'){
 					appendLog('Broadcast was successful');
+					loadListOfNotifications();
 				}else{
 					appendLog('Broadcast failed.');
 				}
@@ -75,6 +81,32 @@ $(function(){
 		});
 	}
 
+	$('.loadNotification').live('click', function(){
+		var notificationId = $(this).data('notification-id');
+		broadcastFormTitle.val($('#' + notificationId + ' .title').text());
+		broadcastFormMessage.val($('#' + notificationId + ' .messageBody').text());
+		broadcastFormCategory.val($('#' + notificationId + ' .category').text());
+		broadcastFormDistrict.val($('#' + notificationId + ' .district').text());
+		appendLog('Broadcast form loaded.');
+		return false;
+	});
+
+	$('.removeNotification').live('click', function(){
+		$.ajax({
+			url: $(this).attr('href')
+			, success: function(data){
+				loadListOfNotifications();
+				appendLog('Notification removed.');
+			}
+			, error: function(){
+				appendLog('Error removing notification.')
+			}
+		});
+		return false;
+	});
+
+	/*
+
 	$("form[action='uploadFile']").submit(function () {
 		var filename = $("#apkFile").val();
 		$.ajax({
@@ -93,7 +125,6 @@ $(function(){
 		});
 		return false;
 	});
-	/*
 	*/
 
 	function appendLog(message){

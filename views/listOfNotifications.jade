@@ -1,6 +1,11 @@
 ul
 	for notification in notifications
-		li #{notification.title}, #{notification.messageBody}, #{notification.category}, #{notification.district}, #{notification.timestamp} 
-			a(href='data/removeNotification?ObjectId=#{notification._id}') Remove
-			| &nbsp;|&nbsp;
-			a(href='data/removeNotification?ObjectId=#{notification._id}') Load    
+		li(id='#{notification._id}') 
+			span(class='title') #{notification.title}
+			span(class='messageBody') #{notification.messageBody}
+			span(class='category') #{notification.category}
+			span(class='district') #{notification.district}
+			span #{notification.timestamp} 
+				a(href='data/removeNotification?ObjectId=#{notification._id}',class='removeNotification') Remove
+				| &nbsp;|&nbsp;
+				a(href='data/removeNotification?ObjectId=#{notification._id}', class='loadNotification', data-notification-id='#{notification._id}') Load    

@@ -16,8 +16,8 @@ var express = require('express')
   , mongoose = require('mongoose');
 
 
-//var connectionString = "mongodb://mongouser:password@alex.mongohq.com:10015/frbn1";
-var connectionString = "mongodb://localhost/frbn";
+var connectionString = "mongodb://mongouser:password@alex.mongohq.com:10015/frbn1";
+//var connectionString = "mongodb://localhost/frbn";
 mongoose.connect(connectionString);
 mongoose.model('Activation', require('./models/activation').Activation);
 mongoose.model('Registration', require('./models/registration').Registration);
